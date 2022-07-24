@@ -80,3 +80,11 @@ ul {
   text-decoration: underline;
   cursor: pointer;
 }
+#codelink-tag-line {
+  display: block;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 10px;
+  padding-top: 10px;
+  position: relative;
+}
