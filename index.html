@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Ubuntu:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/fdfc86a323.js"
+      ;
+      crossorigin="anonymous"
+      ;
+    ></script>
+    <link rel="stylesheet" href="src/style.css" />
+    <title>WeatherApp</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-7">
+          <h1>Weather Report</h1>
+          <form id="city-info">
+            <input
+              type="text"
+              id="city-search"
+              placeholder="Search a city..."
+            />
+            <button type="Submit" class="btn btn-light light" id="search-btn">
+              Search
+            </button>
+            <button type="Submit" class="btn btn-light light" id="current-btn">
+              Current
+            </button>
+          </form>
+        </div>
+        <div class="col-5">
+          <h2 class="cityName">Kodiak, AK</h2>
+          <hr />
+          <div class="current-temp">
+            <div class="row">
+              <div class="col">
+                <i class="fa-regular fa-sun icon-sun"></i>
+                <span id="weatherDes">Sunny</span>
+              </div>
+              <div class="col">
+                <span class="actualDeg">57</span>
+                <span class="degFare">°F</span> |
+                <span class="degCel">°C</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <ul>
+        <li id="localTime"></li>
+        <li id="currentDate"></li>
+        <li>Feels Like: <span id="feel"> </span></li>
+        <li>Humidity: <span id="humidity"> </span></li>
+      </ul>
+
+      <div class="dailyForecast">5 day forcast for your area</div>
+
+      <div class="row">
+        <!--row-cols-auto to make it natural size of col-->
+        <div class="col forecast">
+          <i class="fa-regular fa-sun icon-sun"></i> <br />
+          Mon <br />
+          55°F |°C
+        </div>
+        <div class="col forecast">
+          <i class="fa-regular fa-sun icon-sun"></i> <br />
+          Tue <br />
+          55°F |°C
+        </div>
+        <div class="col forecast">
+          <i class="fa-regular fa-sun icon-sun"></i> <br />
+          Wed <br />
+          55°F |°C
+        </div>
+        <div class="col forecast">
+          <i class="fa-regular fa-sun icon-sun"></i> <br />
+          Thu<br />
+          55°F |°C
+        </div>
+        <div class="col forecast">
+          <i class="fa-regular fa-sun icon-sun"></i> <br />
+          Fri <br />
+          55°F |°C
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
