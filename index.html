@@ -33,9 +33,10 @@
           <h1>Weather Report</h1>
           <form id="city-info">
             <input
-              type="text"
+              type="search"
               id="city-search"
               placeholder="Search a city..."
+              autocomplete="off"
             />
             <button type="Submit" class="btn btn-light light" id="search-btn">
               Search
@@ -51,12 +52,14 @@
           <div class="current-temp">
             <div class="row">
               <div class="col">
-                <img id="icon" src="" , alt="" />
+                <img id="icon-main" src="" , alt="" />
               </div>
               <div class="col">
-                <span class="actualDeg">57</span>
-                <span class="degFare">°F</span> |
-                <span class="degCel">°C</span>
+                <span id="actualDeg">57</span>
+                <span class="units">
+                  <a href="#" id="farenheit" class="active">°F </a>|
+                  <a href="#" id="celcius">°C</a></span
+                >
                 <span id="weatherDes">Sunny</span>
               </div>
             </div>
@@ -69,7 +72,7 @@
           Last Updated: <strong><span id="current-date"></span></strong>
         </li>
         <li>Feels Like: <span id="feel"> </span></li>
-        <li>Humidity: <span id="humidity"> </span></li>
+        <li>Humidity: <span id="humidity"></span>%</li>
       </ul>
 
       <div class="dailyForecast">5 day forcast for your area</div>

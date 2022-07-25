@@ -74,14 +74,10 @@ ul {
   padding-top: 5px;
 }
 
-.degFare:hover {
-  text-decoration: underline;
-  cursor: pointer;
+#actualDeg {
+  font-size: 40px;
 }
-.degCel:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
+
 #codelink-tag-line {
   display: block;
   text-align: center;
@@ -89,4 +85,17 @@ ul {
   font-size: 10px;
   padding-top: 10px;
   position: relative;
+}
+a {
+  text-decoration: none;
+}
+.units {
+  font-size: 13px;
+}
+.units .active {
+  color: black;
+  cursor: default;
+}
+.units .active:hover {
+  text-decoration: none;
 }

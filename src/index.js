@@ -45,10 +45,25 @@ function showPosition(position) {
     .then(displayWeather);
 }
 
-function displayWeather(response) {
-  document.querySelector(".actualDeg").innerHTML = Math.round(
-    response.data.main.temp
+function displayCelciusTemperature(event) {
+  event.preventDefault();
+  celciusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#actualDeg");
+  temperatureElement.innerHTML = Math.round(
+    ((farenheitTemperature - 32) * 5) / 9
   );
+}
+
+function displayFarenheitTemperature(event) {
+  event.preventDefault();
+  farenheitLink.classList.add("active");
+  celciusLink.classList.remove("active");
+  document.querySelector("#actualDeg").innerHTML = farenheitTemperature;
+}
+function displayWeather(response) {
+  farenheitTemperature = Math.round(response.data.main.temp);
+  document.querySelector("#actualDeg").innerHTML = farenheitTemperature;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#weatherDes").innerHTML =
     response.data.weather[0].description;
@@ -57,7 +72,7 @@ function displayWeather(response) {
   );
   document.querySelector("h2").innerHTML = response.data.name;
 
-  let iconElement = document.querySelector("#icon");
+  let iconElement = document.querySelector("#icon-main");
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -66,3 +81,11 @@ function displayWeather(response) {
   dateElement.innerHTML = currentTime(response.data.dt * 1000);
 }
 document.querySelector("#current-btn").addEventListener("click", getLocation);
+
+let farenheitTemperature = null;
+
+let celciusLink = document.querySelector("#celcius");
+celciusLink.addEventListener("click", displayCelciusTemperature);
+
+let farenheitLink = document.querySelector("#farenheit");
+farenheitLink.addEventListener("click", displayFarenheitTemperature);
