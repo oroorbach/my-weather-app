@@ -70,6 +70,8 @@ ul {
 }
 #weatherDes {
   text-transform: capitalize;
+  font-size: 15px;
+  padding-top: 5px;
 }
 
 .degFare:hover {

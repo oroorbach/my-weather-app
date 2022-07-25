@@ -1,4 +1,8 @@
-function formatTime(currentDate) {
+function currentTime(timestamp) {
+  let date = new Date(timestamp);
+  let hours = ("0" + date.getHours()).slice(-2);
+  let minutes = ("0" + date.getMinutes()).slice(-2);
+
   let days = [
     "Sunday",
     "Monday",
@@ -8,37 +12,9 @@ function formatTime(currentDate) {
     "Friday",
     "Saturday",
   ];
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
-  let localDay = days[currentDate.getDay()];
-  let localHr = currentDate.getHours();
-  let localMin = ("0" + currentDate.getMinutes()).slice(-2);
-  let localMonth = months[currentDate.getMonth()];
-  let localDate = currentDate.getDate();
-  let localYear = currentDate.getFullYear();
-
-  let formattedTime = `${localDay} ${localHr}:${localMin}`;
-  let formattedDate = `${localMonth} ${localDate}, ${localYear}`;
-  let time = document.querySelector("#localTime");
-  let daymonthyear = document.querySelector("#currentDate");
-  time.innerHTML = formattedTime;
-  daymonthyear.innerHTML = formattedDate;
+  let day = days[date.getDay()];
+  return `${day} at ${hours}:${minutes}`;
 }
-let currentDate = new Date();
-formatTime(currentDate);
 
 function inputCity(event) {
   event.preventDefault();
@@ -86,6 +62,7 @@ function displayWeather(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  let dateElement = document.querySelector("#current-date");
+  dateElement.innerHTML = currentTime(response.data.dt * 1000);
 }
-
 document.querySelector("#current-btn").addEventListener("click", getLocation);
