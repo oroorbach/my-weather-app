@@ -80,6 +80,12 @@ function displayWeather(response) {
     response.data.main.feels_like
   );
   document.querySelector("h2").innerHTML = response.data.name;
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 document.querySelector("#current-btn").addEventListener("click", getLocation);
