@@ -30,12 +30,11 @@
     <div class="container">
       <div class="row">
         <div class="col-7">
-          <h1>Weather Report</h1>
           <form id="city-info">
             <input
               type="search"
               id="city-search"
-              placeholder="Search a city..."
+              placeholder="Type a city..."
               autocomplete="off"
             />
             <button type="Submit" class="btn btn-light light" id="search-btn">
@@ -45,35 +44,37 @@
               Current
             </button>
           </form>
+          <div class="col weather-temperature">
+            <span id="actualDeg">57</span>
+            <span class="units">
+              <a href="#" id="farenheit" class="active"> °F </a>|
+              <a href="#" id="celcius">°C</a></span
+            >
+          </div>
         </div>
         <div class="col-5">
-          <h2 class="cityName">Kodiak, AK</h2>
+          <h2 class="cityName">Kodiak</h2>
           <hr />
-          <div class="current-temp">
+          <div class="temp-icon-description">
             <div class="row">
-              <div class="col">
+              <div class="col weather-des-icon">
                 <img id="icon-main" src="" , alt="" />
               </div>
-              <div class="col">
-                <span id="actualDeg">57</span>
-                <span class="units">
-                  <a href="#" id="farenheit" class="active">°F </a>|
-                  <a href="#" id="celcius">°C</a></span
-                >
-                <span id="weatherDes">Sunny</span>
+              <div class="col weather-description">
+                <span id="weatherDes"></span>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="col-sm-5 offset-sm-7">
+        <ul>
+          <li>Feels like: <span id="feel"> </span></li>
+          <li>Humidity: <span id="humidity"></span>%</li>
+          <li>Last updated: <span id="current-date"></span></li>
+        </ul>
+      </div>
       <br />
-      <ul>
-        <li>
-          Last Updated: <strong><span id="current-date"></span></strong>
-        </li>
-        <li>Feels Like: <span id="feel"> </span></li>
-        <li>Humidity: <span id="humidity"></span>%</li>
-      </ul>
 
       <div class="dailyForecast">5 day forcast for your area</div>
 
