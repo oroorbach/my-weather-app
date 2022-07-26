@@ -45,7 +45,7 @@ hr {
 }
 .weather-temperature {
   padding-top: 35px;
-  padding-left: 63px;
+  padding-left: 60px;
   padding-bottom: 5px;
 }
 
@@ -55,8 +55,8 @@ a {
 
 .weather-temperature .units {
   position: relative;
-  font-size: 13px;
-  top: -109px;
+  font-size: 15px;
+  top: -103px;
 }
 .weather-temperature .units .active {
   color: black;
