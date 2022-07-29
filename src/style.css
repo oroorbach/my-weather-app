@@ -1,23 +1,14 @@
-/* body {
+body {
   height: 100vh;
-  background: linear-gradient(
-    109.6deg,
-    rgb(190, 223, 250) 11.2%,
-    rgb(237, 246, 250) 100.2%
-  );
-} */
-
+  background: linear-gradient(rgb(247, 214, 198), rgb(250, 241, 241));
+}
 .container {
   margin: 0 auto;
   margin-top: 60px;
   max-width: 650px;
   padding: 40px;
   border-radius: 20px;
-  background: linear-gradient(
-    109.6deg,
-    rgb(190, 223, 250) 11.2%,
-    rgb(237, 246, 250) 100.2%
-  );
+  background: rgba(237, 246, 250, 0.444);
   box-shadow: 8px 5px 5px rgb(211, 211, 211, 0.2);
 }
 
@@ -44,8 +35,8 @@ hr {
   line-height: 1;
 }
 .weather-temperature {
-  padding-top: 35px;
-  padding-left: 60px;
+  padding-top: 25px;
+  padding-left: 53px;
   padding-bottom: 5px;
 }
 
@@ -119,4 +110,5 @@ ul {
   font-size: 10px;
   padding-top: 10px;
   position: relative;
+  left: -200px;
 }
