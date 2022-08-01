@@ -16,6 +16,26 @@ function currentTime(timestamp) {
   return `${day} at ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+
+  let forecastHTML = `<div class = "row">`;
+  let days = ["Thur", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `      
+          <div class="col-2">
+            <i class="fa-regular fa-sun icon-sun"></i> <br />
+            <div class="forecast-day">${day}</div>
+
+            <span class="temperature-max">55°</span>
+            <span class="temperature-min"> |°</span>
+        </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 function inputCity(event) {
   event.preventDefault();
   let city = document.querySelector("#city-search").value;
@@ -89,3 +109,5 @@ celciusLink.addEventListener("click", displayCelciusTemperature);
 
 let farenheitLink = document.querySelector("#farenheit");
 farenheitLink.addEventListener("click", displayFarenheitTemperature);
+
+displayForecast();
