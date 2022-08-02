@@ -25,7 +25,6 @@ function formatDay(timestamp) {
 }
 function displayForecast(response) {
   let forecast = response.data.list;
-  console.log(forecast);
   let forecastElement = document.querySelector("#weather-forecast");
 
   let forecastHTML = `<div class = "row">`;
@@ -40,7 +39,7 @@ function displayForecast(response) {
               forecastDay.weather[0].icon
             }@2x.png 
             alt = ""
-            width = "45"
+            width = "50"
             </img>
             <br />
             <div class="forecast-day">${formatDay(forecastDay.dt)}</div>
@@ -48,9 +47,9 @@ function displayForecast(response) {
             <span class="temperature-max">${Math.round(
               forecastDay.main.temp_max
             )}°</span>
-            <span class="temperature-min"> |${Math.round(
+            <span class="temperature-min"> | <small>${Math.round(
               forecastDay.main.temp_min
-            )}°</span>
+            )}°</small></span>
         </div>`;
     }
   });
@@ -59,8 +58,6 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
-
   let apiKey = "c862a60ffa7620d74753b0a466bf96fa";
   let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
@@ -92,6 +89,10 @@ function inputCity(event) {
   event.preventDefault();
   let city = document.querySelector("#city-search").value;
   document.querySelector("h2").innerHTML = city;
+  search(city);
+}
+
+function search(city) {
   let apiKey = "c862a60ffa7620d74753b0a466bf96fa";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=imperial`;
 
@@ -141,3 +142,5 @@ celciusLink.addEventListener("click", displayCelciusTemperature);
 
 let farenheitLink = document.querySelector("#farenheit");
 farenheitLink.addEventListener("click", displayFarenheitTemperature);
+
+search("Anchorage");

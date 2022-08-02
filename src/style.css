@@ -1,14 +1,15 @@
-body {
+/* body {
   height: 100vh;
-  background: linear-gradient(rgb(247, 214, 198), rgb(250, 241, 241));
-}
+  background: linear-gradient(rgb(229, 228, 228), rgb(243, 243, 243));
+} */
+
 .container {
   margin: 0 auto;
   margin-top: 60px;
   max-width: 650px;
   padding: 40px;
   border-radius: 20px;
-  background: rgb(252, 252, 252);
+  background: rgba(253, 193, 167, 0.47);
   box-shadow: 8px 5px 5px rgb(211, 211, 211, 0.2);
 }
 
@@ -17,7 +18,6 @@ h2 {
   padding: 8px;
   padding-bottom: 0;
   margin: 0;
-  padding-top: 50px;
   font-family: "Ubuntu", sans-serif;
   font-size: 3rem;
 }
@@ -35,7 +35,7 @@ hr {
   line-height: 1;
 }
 .weather-temperature {
-  padding-top: 25px;
+  padding-top: 15px;
   padding-left: 53px;
   padding-bottom: 5px;
 }
@@ -60,6 +60,10 @@ a {
   text-align: center;
   font-size: 20px;
 }
+
+.current-info-weather {
+  padding-top: 30px;
+}
 .list {
   padding-top: 70px;
 }
@@ -74,6 +78,10 @@ ul {
   font-family: "Ubuntu", sans-serif;
 }
 
+.weather-description {
+  padding-top: 15px;
+}
+
 .weather-des-icon {
   padding-right: 15px;
 }
@@ -85,16 +93,11 @@ ul {
 .dailyForecast {
   margin: 0px 0px 20px 0px;
   font-size: 20px;
-  padding-bottom: 5px;
+  padding-top: 10px;
   font-family: "Ubuntu", sans-serif;
 }
 .forecast {
   font-family: "Ubuntu", sans-serif;
-}
-.icon-sun {
-  text-align: center;
-  font-size: 25px;
-  color: rgb(242, 205, 60);
 }
 
 #weatherDes {
