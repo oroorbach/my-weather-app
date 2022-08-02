@@ -16,23 +16,43 @@ function currentTime(timestamp) {
   return `${day} at ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.list;
+  console.log(forecast);
   let forecastElement = document.querySelector("#weather-forecast");
-  let days = ["Thur", "Fri", "Sat", "Sun"];
+
   let forecastHTML = `<div class = "row">`;
 
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `      
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `      
           <div class="col-2">
-            <i class="fa-regular fa-sun icon-sun"></i> <br />
-            <div class="forecast-day">${day}</div>
+            <img src= http://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png 
+            alt = ""
+            width = "45"
+            </img>
+            <br />
+            <div class="forecast-day">${formatDay(forecastDay.dt)}</div>
 
-            <span class="temperature-max">55°</span>
-            <span class="temperature-min"> |°</span>
+            <span class="temperature-max">${Math.round(
+              forecastDay.main.temp_max
+            )}°</span>
+            <span class="temperature-min"> |${Math.round(
+              forecastDay.main.temp_min
+            )}°</span>
         </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -42,7 +62,7 @@ function getForecast(coordinates) {
   console.log(coordinates);
 
   let apiKey = "c862a60ffa7620d74753b0a466bf96fa";
-  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
 
