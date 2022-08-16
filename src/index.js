@@ -25,7 +25,6 @@ function formatDay(timestamp) {
 }
 function displayForecast(response) {
   let forecast = response.data.daily;
-  console.log(forecast);
   let forecastElement = document.querySelector("#weather-forecast");
 
   let forecastHTML = `<div class = "row">`;
@@ -94,12 +93,13 @@ function inputCity(event) {
 
 function search(city) {
   let apiKey = "c862a60ffa7620d74753b0a466bf96fa";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(displayWeather);
 }
 
 function getLocation(event) {
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
